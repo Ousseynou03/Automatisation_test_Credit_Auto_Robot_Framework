@@ -1,0 +1,1 @@
+robot -d Results tests/run_credit_auto.robot
