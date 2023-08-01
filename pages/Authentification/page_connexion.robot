@@ -85,48 +85,44 @@ Se Connecter en tant que LDAP Gestionnaire Credit
     Input Text    ${champ_username}     ${username_LDAP_GESTIONNAIRE_CREDIT}
     Input Text    ${champ_password}     ${password_LDAP_GESTIONNAIRE_CREDIT}
     Click Button    ${btn_Se_Connecter}
-    Wait Until Element Contains    ${champ_nom_utilisateur}     ${password_LDAP_GESTIONNAIRE_CREDIT}
+    Wait Until Element Contains    ${champ_nom_utilisateur}     ${username_LDAP_GESTIONNAIRE_CREDIT}
 
 Se Connecter en tant que LDAP Loueur
     Log To Console    Se Connecter en tant que LDAP Loueur
     Input Text    ${champ_username}     ${username_LDAP_LOUEUR}
     Input Text    ${champ_password}     ${password_LDAP_LOUEUR}
     Click Button    ${btn_Se_Connecter}
-    Wait Until Element Contains    ${champ_nom_utilisateur}     ${password_LDAP_LOUEUR}
+    Wait Until Element Contains    ${champ_nom_utilisateur}     ${username_LDAP_LOUEUR}
 
 #Identifiants érronés
 
 Se Connecter en tant que LDAP administrateur avec mot de passe incorrect
-    Log To Console    Se Connecter en tant que LDAP administrateur
+    Log To Console    Se Connecter en tant que LDAP administrateur mot de passe incorrect
     Input Text    ${champ_username}     ${username_LDAP_ADMIN}
     Input Text    ${champ_password}     ${password_LDAP_ADMIN_incorrect}
     Click Button    ${btn_Se_Connecter}
-    ${element}      Get Webelement    ${champ_msg_erronné}
-    ${element}      Should Be Equal As Strings    ${msg_erroné}
+    Wait Until Element Contains        ${champ_msg_erronné}    ${msg_erroné}
 
 Se Connecter en tant que LDAP Responsable Credit avec mot de passe incorrect
-    Log To Console    Se Connecter en tant que LDAP Responsable Credit
+    Log To Console    Se Connecter en tant que LDAP Responsable Credit mot de passe incorrect
     Input Text    ${champ_username}     ${username_LDAP_RESPONSABLE_CREDIT}
     Input Text    ${champ_password}     ${password_LDAP_RESPONSABLE_CREDIT_incorrect}
     Click Button    ${btn_Se_Connecter}
-    ${element}      Get Webelement    ${champ_msg_erronné}
-    ${champ_msg_erronné}      Should Be Equal As Strings    ${msg_erroné}
+    Wait Until Element Contains    ${champ_msg_erronné}    ${msg_erroné}
 
 Se Connecter en tant que LDAP Gestionnaire Credit avec mot de passe incorrect
-    Log To Console    Se Connecter en tant que LDAP Gestionnaire Credit
+    Log To Console    Se Connecter en tant que LDAP Gestionnaire Credit mot de passe incorrect
     Input Text    ${champ_username}     ${username_LDAP_GESTIONNAIRE_CREDIT}
     Input Text    ${champ_password}     ${password_LDAP_GESTIONNAIRE_CREDIT_incorrect}
     Click Button    ${btn_Se_Connecter}
-    ${element}      Get Webelement    ${champ_msg_erronné}
-    ${champ_msg_erronné}      Should Be Equal As Strings    ${msg_erroné}
+    Wait Until Element Contains    ${champ_msg_erronné}    ${msg_erroné}
 
 Se Connecter en tant que LDAP Loueur avec mot de passe incorrect
-    Log To Console    Se Connecter en tant que LDAP Loueur
+    Log To Console    Se Connecter en tant que LDAP Loueur mot de passe incorrect
     Input Text    ${champ_username}     ${username_LDAP_LOUEUR}
     Input Text    ${champ_password}     ${password_LDAP_LOUEUR_incorrect}
     Click Button    ${btn_Se_Connecter}
-    ${element}      Get Webelement    ${champ_msg_erronné}
-    ${champ_msg_erronné}      Should Be Equal As Strings    ${msg_erroné}
+    Wait Until Element Contains    ${champ_msg_erronné}    ${msg_erroné}
 
 #Déconnexion
 Se déconnecter de CREDIT AUTO
